@@ -21,6 +21,11 @@ public class Baralho {
     private Pilha pilhaBase2;
     private Pilha pilhaBase3;
     private Pilha pilhaBase4;
+    
+    private Object[] espaco1;
+    private Object[] espaco2;
+    private Object[] espaco3;
+    private Object[] espaco4;
 
     public Baralho() {
         this.primeiraPilha = new Pilha();
@@ -35,6 +40,10 @@ public class Baralho {
         this.pilhaBase2 = new Pilha();
         this.pilhaBase3 = new Pilha();
         this.pilhaBase4 = new Pilha();
+        this.espaco1 = null;
+        this.espaco2 = null;
+        this.espaco3 = null;
+        this.espaco4 = null;
     }
 
     private static Lista gerarBaralho() {
@@ -254,17 +263,65 @@ public class Baralho {
 
         System.out.print("Oitava Pilha \t-> ");
         b.getOitavaPilha().imprime();
-        b.pilhaBase1.inserirPilhaBase(b.getPrimeiraPilha().top());
-        b.pilhaBase1.inserirPilhaBase(b.getSegundaPilha().top());
-        b.pilhaBase1.inserirPilhaBase(b.getTerceiraPilha().top());
-        b.pilhaBase1.inserirPilhaBase(b.getQuartaPilha().top());
-        b.pilhaBase1.inserirPilhaBase(b.getQuintaPilha().top());
-        b.pilhaBase1.inserirPilhaBase(b.getSextaPilha().top());
-        b.pilhaBase1.inserirPilhaBase(b.getSetimaPilha().top());
-        b.pilhaBase1.inserirPilhaBase(b.getOitavaPilha().top());
+        b.getPilhaBase1().inserirPilhaBase(b.getPrimeiraPilha());
+        b.getPilhaBase1().inserirPilhaBase(b.getSegundaPilha());
+        b.getPilhaBase1().inserirPilhaBase(b.getTerceiraPilha());
+        b.getPilhaBase1().inserirPilhaBase(b.getQuartaPilha());
+        b.getPilhaBase1().inserirPilhaBase(b.getQuintaPilha());
+        b.getPilhaBase1().inserirPilhaBase(b.getSextaPilha());
+        b.getPilhaBase1().inserirPilhaBase(b.getSetimaPilha());
+        b.getPilhaBase1().inserirPilhaBase(b.getOitavaPilha());
 //        b.pilhaBase2.inserirPilhaBase(b.getSetimaPilha().top());
 //        b.pilhaBase3.inserirPilhaBase(b.getPrimeiraPilha().top());
 //        b.pilhaBase4.inserirPilhaBase(b.getPrimeiraPilha().top());
+        b.getPrimeiraPilha().mudarDePilha(b.getSegundaPilha());
+        b.getPrimeiraPilha().mudarDePilha(b.getTerceiraPilha());
+        b.getPrimeiraPilha().mudarDePilha(b.getQuartaPilha());
+        b.getPrimeiraPilha().mudarDePilha(b.getQuintaPilha());
+        b.getPrimeiraPilha().mudarDePilha(b.getSextaPilha());
+        b.getPrimeiraPilha().mudarDePilha(b.getSetimaPilha());
+        b.getPrimeiraPilha().mudarDePilha(b.getOitavaPilha());
+        b.getSegundaPilha().mudarDePilha(b.getTerceiraPilha());
+        b.getQuartaPilha().mudarDePilha(b.getTerceiraPilha());
+        System.out.print("Primeira Pilha \t-> ");
+        b.getPrimeiraPilha().imprime();
+
+        System.out.print("Segunda Pilha \t-> ");
+        b.getSegundaPilha().imprime();
+
+        System.out.print("Terceira Pilha \t-> ");
+        b.getTerceiraPilha().imprime();
+
+        System.out.print("Quarta Pilha \t-> ");
+        b.getQuartaPilha().imprime();
+
+        System.out.print("Quinta Pilha \t-> ");
+        b.getQuintaPilha().imprime();
+
+        System.out.print("Sexta Pilha \t-> ");
+        b.getSextaPilha().imprime();
+
+        System.out.print("Setima Pilha \t-> ");
+        b.getSetimaPilha().imprime();
+
+        System.out.print("Oitava Pilha \t-> ");
+        b.getOitavaPilha().imprime();
+    }
+
+    public Pilha getPilhaBase1() {
+        return pilhaBase1;
+    }
+
+    public Pilha getPilhaBase2() {
+        return pilhaBase2;
+    }
+
+    public Pilha getPilhaBase3() {
+        return pilhaBase3;
+    }
+
+    public Pilha getPilhaBase4() {
+        return pilhaBase4;
     }
 
 }

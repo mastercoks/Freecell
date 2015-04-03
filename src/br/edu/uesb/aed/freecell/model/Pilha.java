@@ -5,6 +5,8 @@
  */
 package br.edu.uesb.aed.freecell.model;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author matheus
@@ -47,8 +49,9 @@ public class Pilha {
         }
     }
 
-    public Object pop() {
-        Object x = baralho[topo];
+    public Object[] pop() {
+        Object x[] = (Object[]) baralho[topo];
+        baralho[topo] = null;
         topo--;
         return x;
     }
@@ -65,13 +68,15 @@ public class Pilha {
         return topo + 1;
     }
 
-    public void inserirPilhaBase(Object[] carta) {
+    public void inserirPilhaBase(Pilha pilha) {
+        Object[] carta = pilha.top();
         if (top() == null) {
             if ((Integer) carta[1] == 1) {
                 push(carta);
+                pilha.pop();
                 System.out.println("Você inseriu uma carta");
             } else {
-                System.err.println("Error");
+                System.out.println("Error");
             }
         } else {
             if (top()[0].toString().equals(carta[0].toString())
@@ -79,13 +84,13 @@ public class Pilha {
                 push(carta);
                 System.out.println("Você inseriu uma carta");
             } else {
-                System.err.println("Error");
+                System.out.println("Error");
             }
         }
 
     }
 
-    public boolean corInversa(String naipeCarta, String naipeTopo) {
+    private boolean corInversa(String naipeCarta, String naipeTopo) {
         if ("Ouros".equals(naipeCarta) || "Copas".equals(naipeCarta)) {
             if ("Espadas".equals(naipeTopo) || "Paus".equals(naipeTopo)) {
                 return true;
@@ -98,13 +103,22 @@ public class Pilha {
         return false;
     }
 
+    public void mudarDePilha(Pilha nova) {
+        Object[] carta = top();
+        Object[] cartaTopo = nova.top();
+        if (corInversa(carta[0].toString(), cartaTopo[0].toString())) {
+            if (((Integer) carta[1] + 1) == (Integer) cartaTopo[1]) {
+                nova.push(pop());
+                JOptionPane.showConfirmDialog(null, "OPA", "OPA", JOptionPane.WARNING_MESSAGE);
+            } else {
+                System.out.println("Error");
+            }
+        } else {
+            System.out.println("Error");
+        }
+    }
+
     public void imprime() {
-//        for (Object baralho1 : baralho) {
-//        if (baralho1 == null) {
-//                break;
-//            }
-//            System.out.println(baralho1);
-//        }
         for (int i = 0; i < baralho.length; i++) {
             if (baralho[i] == null) {
                 break;
