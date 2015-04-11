@@ -21,9 +21,13 @@ public class Pilha {
         baralho = new Object[13];
         topo = -1;
     }
+    public Pilha(int tamanho) {
+        baralho = new Object[tamanho];
+        topo = -1;
+    }
 
     public boolean isEmpty() {
-        return (topo == 0);
+        return (topo == -1);
     }
 
     public boolean isFull() {
@@ -67,14 +71,31 @@ public class Pilha {
     public int size() {
         return topo + 1;
     }
-
+    
+    public void inserirEspaco(Pilha pilha) {
+        Object[] carta = pilha.top();
+        if (isEmpty()) {
+            push(carta);
+            pilha.pop();
+        } else {
+            System.err.println("Error");
+        }
+    }
+    
+    public void inserirEspacoPilha(Pilha espaco) {
+        if (espaco.isEmpty()) {
+            espaco.push(pop());
+        } else {
+            System.err.println("Error");
+        }
+    }
+       
     public void inserirPilhaBase(Pilha pilha) {
         Object[] carta = pilha.top();
         if (top() == null) {
             if ((Integer) carta[1] == 1) {
                 push(carta);
                 pilha.pop();
-                System.out.println("Você inseriu uma carta");
             } else {
                 System.out.println("Error");
             }
@@ -82,7 +103,7 @@ public class Pilha {
             if (top()[0].toString().equals(carta[0].toString())
                     && ((Integer) top()[1] + 1) == (Integer) carta[1]) {
                 push(carta);
-                System.out.println("Você inseriu uma carta");
+                pilha.pop();
             } else {
                 System.out.println("Error");
             }
@@ -90,7 +111,7 @@ public class Pilha {
 
     }
 
-    private boolean corInversa(String naipeCarta, String naipeTopo) {
+    public boolean corInversa(String naipeCarta, String naipeTopo) {
         if ("Ouros".equals(naipeCarta) || "Copas".equals(naipeCarta)) {
             if ("Espadas".equals(naipeTopo) || "Paus".equals(naipeTopo)) {
                 return true;
@@ -106,16 +127,41 @@ public class Pilha {
     public void mudarDePilha(Pilha nova) {
         Object[] carta = top();
         Object[] cartaTopo = nova.top();
-        if (corInversa(carta[0].toString(), cartaTopo[0].toString())) {
+        if (nova.isEmpty()) {
+            nova.push(pop());
+        } else if (corInversa(carta[0].toString(), cartaTopo[0].toString())) {
             if (((Integer) carta[1] + 1) == (Integer) cartaTopo[1]) {
                 nova.push(pop());
-                JOptionPane.showConfirmDialog(null, "OPA", "OPA", JOptionPane.WARNING_MESSAGE);
             } else {
                 System.out.println("Error");
             }
         } else {
             System.out.println("Error");
         }
+    }
+
+    public String imprimeTopo() {
+        if (topo > -1) {
+            return getCarta(topo)[0] + " " + getCarta(topo)[1];
+        } else {
+            return null;
+        }
+
+    }
+
+    public String imprimeCartas() {
+        String cartas = null;
+        for (int i = 0; i < baralho.length; i++) {
+            if (baralho[i] == null) {
+                break;
+            }
+            if (cartas == null) {
+                cartas = getCarta(i)[0] + " " + getCarta(i)[1] + "\n";
+            } else {
+                cartas += (getCarta(i)[0] + " " + getCarta(i)[1] + "\n");
+            }
+        }
+        return cartas;
     }
 
     public void imprime() {

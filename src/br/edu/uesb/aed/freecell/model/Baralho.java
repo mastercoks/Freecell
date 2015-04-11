@@ -21,11 +21,11 @@ public class Baralho {
     private Pilha pilhaBase2;
     private Pilha pilhaBase3;
     private Pilha pilhaBase4;
-    
-    private Object[] espaco1;
-    private Object[] espaco2;
-    private Object[] espaco3;
-    private Object[] espaco4;
+
+    private Pilha espaco1;
+    private Pilha espaco2;
+    private Pilha espaco3;
+    private Pilha espaco4;
 
     public Baralho() {
         this.primeiraPilha = new Pilha();
@@ -40,10 +40,10 @@ public class Baralho {
         this.pilhaBase2 = new Pilha();
         this.pilhaBase3 = new Pilha();
         this.pilhaBase4 = new Pilha();
-        this.espaco1 = null;
-        this.espaco2 = null;
-        this.espaco3 = null;
-        this.espaco4 = null;
+        this.espaco1 = new Pilha(1);
+        this.espaco2 = new Pilha(1);
+        this.espaco3 = new Pilha(1);
+        this.espaco4 = new Pilha(1);
     }
 
     private static Lista gerarBaralho() {
@@ -176,7 +176,7 @@ public class Baralho {
         for (int i = 0; i < 7; i++) {
             numeroRand = rand.nextInt(tamanho);
             tamanho--;
-            primeiraPilha.push((Object[]) baralho.procurarRemove(numeroRand));
+            getPrimeiraPilha().push((Object[]) baralho.procurarRemove(numeroRand));
             numeroRand = rand.nextInt(tamanho);
             tamanho--;
             segundaPilha.push((Object[]) baralho.procurarRemove(numeroRand));
@@ -323,5 +323,20 @@ public class Baralho {
     public Pilha getPilhaBase4() {
         return pilhaBase4;
     }
+    
+    public Pilha getEspaco1() {
+        return espaco1;
+    }
 
+    public Pilha getEspaco2() {
+        return espaco2;
+    }
+
+    public Pilha getEspaco3() {
+        return espaco3;
+    }
+
+    public Pilha getEspaco4() {
+        return espaco4;
+    }
 }
