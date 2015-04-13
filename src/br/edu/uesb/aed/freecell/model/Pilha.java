@@ -17,10 +17,13 @@ public class Pilha {
     private int topo;
     private Object[] baralho;
 
+//    Construtor sem setar o tamanho
     public Pilha() {
-        baralho = new Object[13];
+        baralho = new Object[25];
         topo = -1;
     }
+    
+//    Construtor setando o tamanho
     public Pilha(int tamanho) {
         baralho = new Object[tamanho];
         topo = -1;
@@ -34,6 +37,7 @@ public class Pilha {
         return (topo == baralho.length);
     }
 
+//    retorna a carta (sem remover) da posição x
     public Object[] getCarta(int i) {
         Object[] carta;
         if (baralho[i] == null) {
@@ -44,6 +48,7 @@ public class Pilha {
         return carta;
     }
 
+    
     public void push(Object[] carta) {
         if (!isFull()) {
             topo++;
@@ -72,6 +77,7 @@ public class Pilha {
         return topo + 1;
     }
     
+//    Metodo para inserir no espaço livre (recebe uma pilha)
     public void inserirEspaco(Pilha pilha) {
         Object[] carta = pilha.top();
         if (isEmpty()) {
@@ -82,7 +88,8 @@ public class Pilha {
         }
     }
     
-    public void inserirEspacoPilha(Pilha espaco) {
+//    Metodo para inserir no espaço livre (recebe uma espaço)
+public void inserirEspacoPilha(Pilha espaco) {
         if (espaco.isEmpty()) {
             espaco.push(pop());
         } else {
@@ -90,6 +97,7 @@ public class Pilha {
         }
     }
        
+//    Metodo para inserir uma carta na pilha base
     public void inserirPilhaBase(Pilha pilha) {
         Object[] carta = pilha.top();
         if (top() == null) {
@@ -111,7 +119,8 @@ public class Pilha {
 
     }
 
-    public boolean corInversa(String naipeCarta, String naipeTopo) {
+//    Metodo para analizar se a cor do naipe das duas cartas são inversos
+    private boolean corInversa(String naipeCarta, String naipeTopo) {
         if ("Ouros".equals(naipeCarta) || "Copas".equals(naipeCarta)) {
             if ("Espadas".equals(naipeTopo) || "Paus".equals(naipeTopo)) {
                 return true;
@@ -124,6 +133,7 @@ public class Pilha {
         return false;
     }
 
+//    Metodo para mudar uma carta de pilha
     public void mudarDePilha(Pilha nova) {
         Object[] carta = top();
         Object[] cartaTopo = nova.top();
@@ -140,7 +150,8 @@ public class Pilha {
         }
     }
 
-    public String imprimeTopo() {
+//    Metodo para retornar a carta do topo
+    public String getTopo() {
         if (topo > -1) {
             return getCarta(topo)[0] + " " + getCarta(topo)[1];
         } else {
@@ -149,7 +160,8 @@ public class Pilha {
 
     }
 
-    public String imprimeCartas() {
+//    Metodo para retornar todas as cartas
+    public String getCartas() {
         String cartas = null;
         for (int i = 0; i < baralho.length; i++) {
             if (baralho[i] == null) {
@@ -164,6 +176,7 @@ public class Pilha {
         return cartas;
     }
 
+//    Metodo para imprimir todas as cartas
     public void imprime() {
         for (int i = 0; i < baralho.length; i++) {
             if (baralho[i] == null) {

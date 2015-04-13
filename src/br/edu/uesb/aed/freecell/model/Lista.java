@@ -62,6 +62,7 @@ public class Lista {
         tail = tmp;
     }
 
+//    Remove o elemento da posição x
     public Object procurarRemove(int posicao) {
         No filaDepois = head;
         No filaAntes = null;
@@ -83,20 +84,11 @@ public class Lista {
                 tail = filaDepois;
             }
         }
-//        aux.next = tmp.next;
         return filaDepois.getItem();
 
     }
 
-    public void imprime() {
-        No tmp = head;
-//        Element proxTmp = null;
-        while (tmp != null) {
-            System.out.println(tmp.item[0] + " " + tmp.item[1]);
-            tmp = tmp.next;
-        }
-    }
-
+//   retorna o tamanho da lista
     public int size() {
         No tmp = head;
         int tamanho = 0;

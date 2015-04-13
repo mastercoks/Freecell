@@ -27,6 +27,7 @@ public class Baralho {
     private Pilha espaco3;
     private Pilha espaco4;
 
+//    Construtor inicia todas as pilhas e coloca tamanho 1 nos espaços
     public Baralho() {
         this.primeiraPilha = new Pilha();
         this.segundaPilha = new Pilha();
@@ -46,6 +47,7 @@ public class Baralho {
         this.espaco4 = new Pilha(1);
     }
 
+//    Metodo para gerar as cartas e colocar no baralho
     private static Lista gerarBaralho() {
         Lista baralho = new Lista();
         Object[] carta;
@@ -165,6 +167,7 @@ public class Baralho {
         return baralho;
     }
 
+//    Metodo para pegar cartas aleatórias do baralho e colocar nas pilhas
     public void embaralhar() {
         Lista baralho = gerarBaralho();
 
@@ -234,78 +237,6 @@ public class Baralho {
 
     public Pilha getOitavaPilha() {
         return oitavaPilha;
-    }
-
-    public static void main(String[] args) {
-        Baralho b = new Baralho();
-        b.embaralhar();
-
-        System.out.print("Primeira Pilha \t-> ");
-        b.getPrimeiraPilha().imprime();
-
-        System.out.print("Segunda Pilha \t-> ");
-        b.getSegundaPilha().imprime();
-
-        System.out.print("Terceira Pilha \t-> ");
-        b.getTerceiraPilha().imprime();
-
-        System.out.print("Quarta Pilha \t-> ");
-        b.getQuartaPilha().imprime();
-
-        System.out.print("Quinta Pilha \t-> ");
-        b.getQuintaPilha().imprime();
-
-        System.out.print("Sexta Pilha \t-> ");
-        b.getSextaPilha().imprime();
-
-        System.out.print("Setima Pilha \t-> ");
-        b.getSetimaPilha().imprime();
-
-        System.out.print("Oitava Pilha \t-> ");
-        b.getOitavaPilha().imprime();
-        b.getPilhaBase1().inserirPilhaBase(b.getPrimeiraPilha());
-        b.getPilhaBase1().inserirPilhaBase(b.getSegundaPilha());
-        b.getPilhaBase1().inserirPilhaBase(b.getTerceiraPilha());
-        b.getPilhaBase1().inserirPilhaBase(b.getQuartaPilha());
-        b.getPilhaBase1().inserirPilhaBase(b.getQuintaPilha());
-        b.getPilhaBase1().inserirPilhaBase(b.getSextaPilha());
-        b.getPilhaBase1().inserirPilhaBase(b.getSetimaPilha());
-        b.getPilhaBase1().inserirPilhaBase(b.getOitavaPilha());
-//        b.pilhaBase2.inserirPilhaBase(b.getSetimaPilha().top());
-//        b.pilhaBase3.inserirPilhaBase(b.getPrimeiraPilha().top());
-//        b.pilhaBase4.inserirPilhaBase(b.getPrimeiraPilha().top());
-        b.getPrimeiraPilha().mudarDePilha(b.getSegundaPilha());
-        b.getPrimeiraPilha().mudarDePilha(b.getTerceiraPilha());
-        b.getPrimeiraPilha().mudarDePilha(b.getQuartaPilha());
-        b.getPrimeiraPilha().mudarDePilha(b.getQuintaPilha());
-        b.getPrimeiraPilha().mudarDePilha(b.getSextaPilha());
-        b.getPrimeiraPilha().mudarDePilha(b.getSetimaPilha());
-        b.getPrimeiraPilha().mudarDePilha(b.getOitavaPilha());
-        b.getSegundaPilha().mudarDePilha(b.getTerceiraPilha());
-        b.getQuartaPilha().mudarDePilha(b.getTerceiraPilha());
-        System.out.print("Primeira Pilha \t-> ");
-        b.getPrimeiraPilha().imprime();
-
-        System.out.print("Segunda Pilha \t-> ");
-        b.getSegundaPilha().imprime();
-
-        System.out.print("Terceira Pilha \t-> ");
-        b.getTerceiraPilha().imprime();
-
-        System.out.print("Quarta Pilha \t-> ");
-        b.getQuartaPilha().imprime();
-
-        System.out.print("Quinta Pilha \t-> ");
-        b.getQuintaPilha().imprime();
-
-        System.out.print("Sexta Pilha \t-> ");
-        b.getSextaPilha().imprime();
-
-        System.out.print("Setima Pilha \t-> ");
-        b.getSetimaPilha().imprime();
-
-        System.out.print("Oitava Pilha \t-> ");
-        b.getOitavaPilha().imprime();
     }
 
     public Pilha getPilhaBase1() {

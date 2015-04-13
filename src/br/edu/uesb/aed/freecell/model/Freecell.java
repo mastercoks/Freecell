@@ -23,6 +23,7 @@ public class Freecell extends javax.swing.JFrame {
         novoJogo();
     }
 
+//    Metodo para criar um novo jogo
     private void novoJogo() {
         baralho = new Baralho();
         baralho.embaralhar();
@@ -33,57 +34,33 @@ public class Freecell extends javax.swing.JFrame {
         atualizar();
     }
 
+//    Metodo para atualizar as pilhas
     private void atualizar() {
         if (venceu()) {
             JOptionPane.showMessageDialog(this, "Parabéns!\nVocê venceu!");
         }
-        txtPilha1.setText(baralho.getPrimeiraPilha().imprimeCartas());
-        txtPilhaDois.setText(baralho.getSegundaPilha().imprimeCartas());
-        txtPilhaTres.setText(baralho.getTerceiraPilha().imprimeCartas());
-        txtPilhaQuatro.setText(baralho.getQuartaPilha().imprimeCartas());
-        txtPilhaCinco.setText(baralho.getQuintaPilha().imprimeCartas());
-        txtPilhaSeis.setText(baralho.getSextaPilha().imprimeCartas());
-        txtPilhaSete.setText(baralho.getSetimaPilha().imprimeCartas());
-        txtPilhaOito.setText(baralho.getOitavaPilha().imprimeCartas());
-        txtPilhaBase1.setText(baralho.getPilhaBase1().imprimeTopo());
-        txtPilhaBase2.setText(baralho.getPilhaBase2().imprimeTopo());
-        txtPilhaBase3.setText(baralho.getPilhaBase3().imprimeTopo());
-        txtPilhaBase4.setText(baralho.getPilhaBase4().imprimeTopo());
-        txtEspaco1.setText(baralho.getEspaco1().imprimeTopo());
-        txtEspaco2.setText(baralho.getEspaco2().imprimeTopo());
-        txtEspaco3.setText(baralho.getEspaco3().imprimeTopo());
-        txtEspaco4.setText(baralho.getEspaco4().imprimeTopo());
+        txtPilha1.setText(baralho.getPrimeiraPilha().getCartas());
+        txtPilha2.setText(baralho.getSegundaPilha().getCartas());
+        txtPilha3.setText(baralho.getTerceiraPilha().getCartas());
+        txtPilha4.setText(baralho.getQuartaPilha().getCartas());
+        txtPilha5.setText(baralho.getQuintaPilha().getCartas());
+        txtPilha6.setText(baralho.getSextaPilha().getCartas());
+        txtPilha7.setText(baralho.getSetimaPilha().getCartas());
+        txtPilha8.setText(baralho.getOitavaPilha().getCartas());
+        txtPilhaBase1.setText(baralho.getPilhaBase1().getTopo());
+        txtPilhaBase2.setText(baralho.getPilhaBase2().getTopo());
+        txtPilhaBase3.setText(baralho.getPilhaBase3().getTopo());
+        txtPilhaBase4.setText(baralho.getPilhaBase4().getTopo());
+        txtEspaco1.setText(baralho.getEspaco1().getTopo());
+        txtEspaco2.setText(baralho.getEspaco2().getTopo());
+        txtEspaco3.setText(baralho.getEspaco3().getTopo());
+        txtEspaco4.setText(baralho.getEspaco4().getTopo());
     }
 
-    private void mudarPilha(String opcao, Pilha pilha) {
-        switch (opcao) {
-            case "Pilha 1":
-                pilha.mudarDePilha(baralho.getPrimeiraPilha());
-                break;
-            case "Pilha 2":
-                pilha.mudarDePilha(baralho.getSegundaPilha());
-                break;
-            case "Pilha 3":
-                pilha.mudarDePilha(baralho.getTerceiraPilha());
-                break;
-            case "Pilha 4":
-                pilha.mudarDePilha(baralho.getQuartaPilha());
-                break;
-            case "Pilha 5":
-                pilha.mudarDePilha(baralho.getQuintaPilha());
-                break;
-            case "Pilha 6":
-                pilha.mudarDePilha(baralho.getSextaPilha());
-                break;
-            case "Pilha 7":
-                pilha.mudarDePilha(baralho.getSetimaPilha());
-                break;
-            case "Pilha 8":
-                pilha.mudarDePilha(baralho.getOitavaPilha());
-                break;
-        }
-    }
+//    Metodo para receber qual pilha o jogador quer colocar a carta
+   
 
+//    Metodo para verificar se o jogador venceu
     private boolean venceu() {
         if (baralho.getPilhaBase1().isEmpty() && baralho.getPilhaBase2().isEmpty()
                 && baralho.getPilhaBase3().isEmpty() && baralho.getPilhaBase4().isEmpty()) {
@@ -93,10 +70,12 @@ public class Freecell extends javax.swing.JFrame {
                 && (Integer) baralho.getPilhaBase3().top()[1] == 13
                 && (Integer) baralho.getPilhaBase4().top()[1] == 13) {
 
+            return true;
         }
         return false;
     }
 
+//    Metodo para receber qual pilha o jogador quer colocar a carta
     private void mudarCarta(String opcao, Pilha carta) {
         switch (opcao) {
             case "Pilha 1":
@@ -185,7 +164,7 @@ public class Freecell extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel = new javax.swing.JPanel();
         pEspaco1 = new javax.swing.JPanel();
         txtEspaco1 = new javax.swing.JLabel();
         pEspaco2 = new javax.swing.JPanel();
@@ -206,38 +185,43 @@ public class Freecell extends javax.swing.JFrame {
         pPilhaBase3 = new javax.swing.JPanel();
         txtPilhaBase3 = new javax.swing.JLabel();
         bMudarPilha2 = new javax.swing.JButton();
-        Pilha2 = new javax.swing.JPanel();
-        txtPilhaDois = new javax.swing.JTextArea();
+        pPilha2 = new javax.swing.JPanel();
+        txtPilha2 = new javax.swing.JTextArea();
         bMudarPilha3 = new javax.swing.JButton();
-        Pilha3 = new javax.swing.JPanel();
-        txtPilhaTres = new javax.swing.JTextArea();
-        Pilha4 = new javax.swing.JPanel();
-        txtPilhaQuatro = new javax.swing.JTextArea();
+        pPilha3 = new javax.swing.JPanel();
+        txtPilha3 = new javax.swing.JTextArea();
+        pPilha4 = new javax.swing.JPanel();
+        txtPilha4 = new javax.swing.JTextArea();
         bMudarPilha4 = new javax.swing.JButton();
-        Pilha5 = new javax.swing.JPanel();
-        txtPilhaCinco = new javax.swing.JTextArea();
-        MudarPilha5 = new javax.swing.JButton();
-        Pilha6 = new javax.swing.JPanel();
-        txtPilhaSeis = new javax.swing.JTextArea();
-        MudarPilha6 = new javax.swing.JButton();
-        Pilha7 = new javax.swing.JPanel();
-        txtPilhaSete = new javax.swing.JTextArea();
-        MudarPilha7 = new javax.swing.JButton();
-        Pilha8 = new javax.swing.JPanel();
-        txtPilhaOito = new javax.swing.JTextArea();
-        MudarPilha8 = new javax.swing.JButton();
+        pPilha5 = new javax.swing.JPanel();
+        txtPilha5 = new javax.swing.JTextArea();
+        bMudarPilha5 = new javax.swing.JButton();
+        pPilha6 = new javax.swing.JPanel();
+        txtPilha6 = new javax.swing.JTextArea();
+        bMudarPilha6 = new javax.swing.JButton();
+        pPilha7 = new javax.swing.JPanel();
+        txtPilha7 = new javax.swing.JTextArea();
+        bMudarPilha7 = new javax.swing.JButton();
+        pPilha8 = new javax.swing.JPanel();
+        txtPilha8 = new javax.swing.JTextArea();
+        bMudarPilha8 = new javax.swing.JButton();
         bRetirarEspaco1 = new javax.swing.JButton();
         bRetirarEspaco2 = new javax.swing.JButton();
         bRetirarEspaco3 = new javax.swing.JButton();
         bRetirarEspaco4 = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        jMenuBar = new javax.swing.JMenuBar();
+        mJogo = new javax.swing.JMenu();
+        miNovoJogo = new javax.swing.JMenuItem();
+        miSair = new javax.swing.JMenuItem();
+        mAjuda = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Freecell");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setMinimumSize(new java.awt.Dimension(945, 500));
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 0));
+        jPanel.setBackground(new java.awt.Color(0, 204, 0));
 
         pEspaco1.setBackground(new java.awt.Color(0, 204, 0));
         pEspaco1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(238, 238, 238), 2, true));
@@ -335,7 +319,7 @@ public class Freecell extends javax.swing.JFrame {
         );
         pPilha1Layout.setVerticalGroup(
             pPilha1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtPilha1)
+            .addComponent(txtPilha1, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
         );
 
         bMudarPilha1.setText("Mudar");
@@ -432,23 +416,23 @@ public class Freecell extends javax.swing.JFrame {
             }
         });
 
-        Pilha2.setBackground(new java.awt.Color(0, 255, 51));
-        Pilha2.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(0, 153, 0)));
+        pPilha2.setBackground(new java.awt.Color(0, 255, 51));
+        pPilha2.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(0, 153, 0)));
 
-        txtPilhaDois.setEditable(false);
-        txtPilhaDois.setBackground(new java.awt.Color(0, 255, 51));
-        txtPilhaDois.setColumns(20);
-        txtPilhaDois.setRows(5);
+        txtPilha2.setEditable(false);
+        txtPilha2.setBackground(new java.awt.Color(0, 255, 51));
+        txtPilha2.setColumns(20);
+        txtPilha2.setRows(5);
 
-        javax.swing.GroupLayout Pilha2Layout = new javax.swing.GroupLayout(Pilha2);
-        Pilha2.setLayout(Pilha2Layout);
-        Pilha2Layout.setHorizontalGroup(
-            Pilha2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtPilhaDois, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        javax.swing.GroupLayout pPilha2Layout = new javax.swing.GroupLayout(pPilha2);
+        pPilha2.setLayout(pPilha2Layout);
+        pPilha2Layout.setHorizontalGroup(
+            pPilha2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtPilha2, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
-        Pilha2Layout.setVerticalGroup(
-            Pilha2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtPilhaDois, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+        pPilha2Layout.setVerticalGroup(
+            pPilha2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtPilha2, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
         );
 
         bMudarPilha3.setText("Mudar");
@@ -458,42 +442,42 @@ public class Freecell extends javax.swing.JFrame {
             }
         });
 
-        Pilha3.setBackground(new java.awt.Color(0, 255, 51));
-        Pilha3.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(0, 153, 0)));
+        pPilha3.setBackground(new java.awt.Color(0, 255, 51));
+        pPilha3.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(0, 153, 0)));
 
-        txtPilhaTres.setEditable(false);
-        txtPilhaTres.setBackground(new java.awt.Color(0, 255, 51));
-        txtPilhaTres.setColumns(20);
-        txtPilhaTres.setRows(5);
+        txtPilha3.setEditable(false);
+        txtPilha3.setBackground(new java.awt.Color(0, 255, 51));
+        txtPilha3.setColumns(20);
+        txtPilha3.setRows(5);
 
-        javax.swing.GroupLayout Pilha3Layout = new javax.swing.GroupLayout(Pilha3);
-        Pilha3.setLayout(Pilha3Layout);
-        Pilha3Layout.setHorizontalGroup(
-            Pilha3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtPilhaTres, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        javax.swing.GroupLayout pPilha3Layout = new javax.swing.GroupLayout(pPilha3);
+        pPilha3.setLayout(pPilha3Layout);
+        pPilha3Layout.setHorizontalGroup(
+            pPilha3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtPilha3, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
-        Pilha3Layout.setVerticalGroup(
-            Pilha3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtPilhaTres, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+        pPilha3Layout.setVerticalGroup(
+            pPilha3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtPilha3, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
         );
 
-        Pilha4.setBackground(new java.awt.Color(0, 255, 51));
-        Pilha4.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(0, 153, 0)));
+        pPilha4.setBackground(new java.awt.Color(0, 255, 51));
+        pPilha4.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(0, 153, 0)));
 
-        txtPilhaQuatro.setEditable(false);
-        txtPilhaQuatro.setBackground(new java.awt.Color(0, 255, 51));
-        txtPilhaQuatro.setColumns(20);
-        txtPilhaQuatro.setRows(5);
+        txtPilha4.setEditable(false);
+        txtPilha4.setBackground(new java.awt.Color(0, 255, 51));
+        txtPilha4.setColumns(20);
+        txtPilha4.setRows(5);
 
-        javax.swing.GroupLayout Pilha4Layout = new javax.swing.GroupLayout(Pilha4);
-        Pilha4.setLayout(Pilha4Layout);
-        Pilha4Layout.setHorizontalGroup(
-            Pilha4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtPilhaQuatro, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        javax.swing.GroupLayout pPilha4Layout = new javax.swing.GroupLayout(pPilha4);
+        pPilha4.setLayout(pPilha4Layout);
+        pPilha4Layout.setHorizontalGroup(
+            pPilha4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtPilha4, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
-        Pilha4Layout.setVerticalGroup(
-            Pilha4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtPilhaQuatro)
+        pPilha4Layout.setVerticalGroup(
+            pPilha4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtPilha4, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
         );
 
         bMudarPilha4.setText("Mudar");
@@ -503,107 +487,107 @@ public class Freecell extends javax.swing.JFrame {
             }
         });
 
-        Pilha5.setBackground(new java.awt.Color(0, 255, 51));
-        Pilha5.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(0, 153, 0)));
+        pPilha5.setBackground(new java.awt.Color(0, 255, 51));
+        pPilha5.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(0, 153, 0)));
 
-        txtPilhaCinco.setEditable(false);
-        txtPilhaCinco.setBackground(new java.awt.Color(0, 255, 51));
-        txtPilhaCinco.setColumns(20);
-        txtPilhaCinco.setRows(5);
+        txtPilha5.setEditable(false);
+        txtPilha5.setBackground(new java.awt.Color(0, 255, 51));
+        txtPilha5.setColumns(20);
+        txtPilha5.setRows(5);
 
-        javax.swing.GroupLayout Pilha5Layout = new javax.swing.GroupLayout(Pilha5);
-        Pilha5.setLayout(Pilha5Layout);
-        Pilha5Layout.setHorizontalGroup(
-            Pilha5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtPilhaCinco, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        javax.swing.GroupLayout pPilha5Layout = new javax.swing.GroupLayout(pPilha5);
+        pPilha5.setLayout(pPilha5Layout);
+        pPilha5Layout.setHorizontalGroup(
+            pPilha5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtPilha5, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
-        Pilha5Layout.setVerticalGroup(
-            Pilha5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtPilhaCinco)
+        pPilha5Layout.setVerticalGroup(
+            pPilha5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtPilha5, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
         );
 
-        MudarPilha5.setText("Mudar");
-        MudarPilha5.addActionListener(new java.awt.event.ActionListener() {
+        bMudarPilha5.setText("Mudar");
+        bMudarPilha5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MudarPilha5ActionPerformed(evt);
+                bMudarPilha5ActionPerformed(evt);
             }
         });
 
-        Pilha6.setBackground(new java.awt.Color(0, 255, 51));
-        Pilha6.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(0, 153, 0)));
+        pPilha6.setBackground(new java.awt.Color(0, 255, 51));
+        pPilha6.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(0, 153, 0)));
 
-        txtPilhaSeis.setEditable(false);
-        txtPilhaSeis.setBackground(new java.awt.Color(0, 255, 51));
-        txtPilhaSeis.setColumns(20);
-        txtPilhaSeis.setRows(5);
+        txtPilha6.setEditable(false);
+        txtPilha6.setBackground(new java.awt.Color(0, 255, 51));
+        txtPilha6.setColumns(20);
+        txtPilha6.setRows(5);
 
-        javax.swing.GroupLayout Pilha6Layout = new javax.swing.GroupLayout(Pilha6);
-        Pilha6.setLayout(Pilha6Layout);
-        Pilha6Layout.setHorizontalGroup(
-            Pilha6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtPilhaSeis, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        javax.swing.GroupLayout pPilha6Layout = new javax.swing.GroupLayout(pPilha6);
+        pPilha6.setLayout(pPilha6Layout);
+        pPilha6Layout.setHorizontalGroup(
+            pPilha6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtPilha6, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
-        Pilha6Layout.setVerticalGroup(
-            Pilha6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtPilhaSeis)
+        pPilha6Layout.setVerticalGroup(
+            pPilha6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtPilha6, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
         );
 
-        MudarPilha6.setText("Mudar");
-        MudarPilha6.addActionListener(new java.awt.event.ActionListener() {
+        bMudarPilha6.setText("Mudar");
+        bMudarPilha6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MudarPilha6ActionPerformed(evt);
+                bMudarPilha6ActionPerformed(evt);
             }
         });
 
-        Pilha7.setBackground(new java.awt.Color(0, 255, 51));
-        Pilha7.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(0, 153, 0)));
+        pPilha7.setBackground(new java.awt.Color(0, 255, 51));
+        pPilha7.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(0, 153, 0)));
 
-        txtPilhaSete.setEditable(false);
-        txtPilhaSete.setBackground(new java.awt.Color(0, 255, 51));
-        txtPilhaSete.setColumns(20);
-        txtPilhaSete.setRows(5);
+        txtPilha7.setEditable(false);
+        txtPilha7.setBackground(new java.awt.Color(0, 255, 51));
+        txtPilha7.setColumns(20);
+        txtPilha7.setRows(5);
 
-        javax.swing.GroupLayout Pilha7Layout = new javax.swing.GroupLayout(Pilha7);
-        Pilha7.setLayout(Pilha7Layout);
-        Pilha7Layout.setHorizontalGroup(
-            Pilha7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtPilhaSete, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        javax.swing.GroupLayout pPilha7Layout = new javax.swing.GroupLayout(pPilha7);
+        pPilha7.setLayout(pPilha7Layout);
+        pPilha7Layout.setHorizontalGroup(
+            pPilha7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtPilha7, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
-        Pilha7Layout.setVerticalGroup(
-            Pilha7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtPilhaSete)
+        pPilha7Layout.setVerticalGroup(
+            pPilha7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtPilha7, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
         );
 
-        MudarPilha7.setText("Mudar");
-        MudarPilha7.addActionListener(new java.awt.event.ActionListener() {
+        bMudarPilha7.setText("Mudar");
+        bMudarPilha7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MudarPilha7ActionPerformed(evt);
+                bMudarPilha7ActionPerformed(evt);
             }
         });
 
-        Pilha8.setBackground(new java.awt.Color(0, 255, 51));
-        Pilha8.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(0, 153, 0)));
+        pPilha8.setBackground(new java.awt.Color(0, 255, 51));
+        pPilha8.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(0, 153, 0)));
 
-        txtPilhaOito.setEditable(false);
-        txtPilhaOito.setBackground(new java.awt.Color(0, 255, 51));
-        txtPilhaOito.setColumns(20);
-        txtPilhaOito.setRows(5);
+        txtPilha8.setEditable(false);
+        txtPilha8.setBackground(new java.awt.Color(0, 255, 51));
+        txtPilha8.setColumns(20);
+        txtPilha8.setRows(5);
 
-        javax.swing.GroupLayout Pilha8Layout = new javax.swing.GroupLayout(Pilha8);
-        Pilha8.setLayout(Pilha8Layout);
-        Pilha8Layout.setHorizontalGroup(
-            Pilha8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtPilhaOito, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        javax.swing.GroupLayout pPilha8Layout = new javax.swing.GroupLayout(pPilha8);
+        pPilha8.setLayout(pPilha8Layout);
+        pPilha8Layout.setHorizontalGroup(
+            pPilha8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtPilha8, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
-        Pilha8Layout.setVerticalGroup(
-            Pilha8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtPilhaOito)
+        pPilha8Layout.setVerticalGroup(
+            pPilha8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtPilha8, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
         );
 
-        MudarPilha8.setText("Mudar");
-        MudarPilha8.addActionListener(new java.awt.event.ActionListener() {
+        bMudarPilha8.setText("Mudar");
+        bMudarPilha8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MudarPilha8ActionPerformed(evt);
+                bMudarPilha8ActionPerformed(evt);
             }
         });
 
@@ -639,61 +623,61 @@ public class Freecell extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
+        jPanel.setLayout(jPanelLayout);
+        jPanelLayout.setHorizontalGroup(
+            jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 1, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(bMudarPilha1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(pPilha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(bMudarPilha2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Pilha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pPilha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(bMudarPilha3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Pilha3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pPilha3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(bMudarPilha4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Pilha4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pPilha4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(MudarPilha5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Pilha5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(bMudarPilha5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pPilha5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(MudarPilha6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Pilha6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(bMudarPilha6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pPilha6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(MudarPilha7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Pilha7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(bMudarPilha7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pPilha7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(MudarPilha8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Pilha8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 4, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(bMudarPilha8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pPilha8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(bRetirarEspaco1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
                             .addComponent(pEspaco1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(pEspaco2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(bRetirarEspaco2, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(pEspaco3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(bRetirarEspaco3, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(pEspaco4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(bRetirarEspaco4, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -706,17 +690,17 @@ public class Freecell extends javax.swing.JFrame {
                         .addComponent(pPilhaBase4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanelLayout.setVerticalGroup(
+            jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bRetirarEspaco1)
                     .addComponent(bRetirarEspaco2)
                     .addComponent(bRetirarEspaco3)
                     .addComponent(bRetirarEspaco4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(pEspaco4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pEspaco3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pEspaco2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -726,68 +710,81 @@ public class Freecell extends javax.swing.JFrame {
                     .addComponent(pPilhaBase2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pPilhaBase1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(bMudarPilha1)
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addComponent(bMudarPilha8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pPilha1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(bMudarPilha2)
+                        .addComponent(pPilha8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addComponent(bMudarPilha7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Pilha2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(bMudarPilha3)
+                        .addComponent(pPilha7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addComponent(bMudarPilha6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Pilha3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(pPilha6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addComponent(bMudarPilha5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pPilha5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
                         .addComponent(bMudarPilha4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Pilha4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(MudarPilha5)
+                        .addComponent(pPilha4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addComponent(bMudarPilha3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Pilha5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(MudarPilha6)
+                        .addComponent(pPilha3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addComponent(bMudarPilha1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Pilha6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(MudarPilha7)
+                        .addComponent(pPilha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addComponent(bMudarPilha2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Pilha7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(MudarPilha8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Pilha8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(pPilha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("Jogo");
+        mJogo.setText("Jogo");
 
-        jMenuItem1.setText("Novo Jogo");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        miNovoJogo.setText("Novo Jogo");
+        miNovoJogo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                miNovoJogoActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        mJogo.add(miNovoJogo);
 
-        jMenuBar1.add(jMenu1);
+        miSair.setText("Sair");
+        miSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miSairActionPerformed(evt);
+            }
+        });
+        mJogo.add(miSair);
 
-        jMenu2.setText("Ajuda");
-        jMenuBar1.add(jMenu2);
+        jMenuBar.add(mJogo);
 
-        setJMenuBar(jMenuBar1);
+        mAjuda.setText("Ajuda");
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
+        jMenuItem1.setText("Exibir ajuda");
+        mAjuda.add(jMenuItem1);
+
+        jMenuBar.add(mAjuda);
+
+        setJMenuBar(jMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -805,7 +802,7 @@ public class Freecell extends javax.swing.JFrame {
                 Object resp2 = JOptionPane.showInputDialog(this, "Escolha a pilha onde quer colocar a carta!",
                         "Freecell", JOptionPane.PLAIN_MESSAGE, null, escolha, escolha[0]);
                 if (resp2 != null) {
-                    mudarPilha(resp2.toString(), baralho.getPrimeiraPilha());
+                    mudarCarta(resp2.toString(), baralho.getPrimeiraPilha());
                 }
             } else if (resp == JOptionPane.NO_OPTION) {
                 escolha = new String[]{"Espaço 1", "Espaço 2", "Espaço 3", "Espaço 4"};
@@ -838,7 +835,7 @@ public class Freecell extends javax.swing.JFrame {
                 Object resp2 = JOptionPane.showInputDialog(this, "Escolha a pilha onde quer colocar a carta!",
                         "Freecell", JOptionPane.PLAIN_MESSAGE, null, escolha, escolha[0]);
                 if (resp2 != null) {
-                    mudarPilha(resp2.toString(), baralho.getSegundaPilha());
+                    mudarCarta(resp2.toString(), baralho.getSegundaPilha());
                 }
             } else if (resp == JOptionPane.NO_OPTION) {
                 escolha = new String[]{"Espaço 1", "Espaço 2", "Espaço 3", "Espaço 4"};
@@ -871,7 +868,7 @@ public class Freecell extends javax.swing.JFrame {
                 Object resp2 = JOptionPane.showInputDialog(this, "Escolha a pilha onde quer colocar a carta!",
                         "Freecell", JOptionPane.PLAIN_MESSAGE, null, escolha, escolha[0]);
                 if (resp2 != null) {
-                    mudarPilha(resp2.toString(), baralho.getTerceiraPilha());
+                    mudarCarta(resp2.toString(), baralho.getTerceiraPilha());
                 }
             } else if (resp == JOptionPane.NO_OPTION) {
                 escolha = new String[]{"Espaço 1", "Espaço 2", "Espaço 3", "Espaço 4"};
@@ -904,7 +901,7 @@ public class Freecell extends javax.swing.JFrame {
                 Object resp2 = JOptionPane.showInputDialog(this, "Escolha a pilha onde quer colocar a carta!",
                         "Freecell", JOptionPane.PLAIN_MESSAGE, null, escolha, escolha[0]);
                 if (resp2 != null) {
-                    mudarPilha(resp2.toString(), baralho.getQuartaPilha());
+                    mudarCarta(resp2.toString(), baralho.getQuartaPilha());
                 }
             } else if (resp == JOptionPane.NO_OPTION) {
                 escolha = new String[]{"Espaço 1", "Espaço 2", "Espaço 3", "Espaço 4"};
@@ -925,7 +922,7 @@ public class Freecell extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bMudarPilha4ActionPerformed
 
-    private void MudarPilha5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MudarPilha5ActionPerformed
+    private void bMudarPilha5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMudarPilha5ActionPerformed
         if (!baralho.getQuintaPilha().isEmpty()) {
             Object[] opcao = {"Mudar de Pilha", "Celula de Retenção", "Pilha Base"};
 
@@ -937,7 +934,7 @@ public class Freecell extends javax.swing.JFrame {
                 Object resp2 = JOptionPane.showInputDialog(this, "Escolha a pilha onde quer colocar a carta!",
                         "Freecell", JOptionPane.PLAIN_MESSAGE, null, escolha, escolha[0]);
                 if (resp2 != null) {
-                    mudarPilha(resp2.toString(), baralho.getQuintaPilha());
+                    mudarCarta(resp2.toString(), baralho.getQuintaPilha());
                 }
             } else if (resp == JOptionPane.NO_OPTION) {
                 escolha = new String[]{"Espaço 1", "Espaço 2", "Espaço 3", "Espaço 4"};
@@ -956,9 +953,9 @@ public class Freecell extends javax.swing.JFrame {
             }
             atualizar();
         }
-    }//GEN-LAST:event_MudarPilha5ActionPerformed
+    }//GEN-LAST:event_bMudarPilha5ActionPerformed
 
-    private void MudarPilha6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MudarPilha6ActionPerformed
+    private void bMudarPilha6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMudarPilha6ActionPerformed
         if (!baralho.getSextaPilha().isEmpty()) {
             Object[] opcao = {"Mudar de Pilha", "Celula de Retenção", "Pilha Base"};
 
@@ -970,7 +967,7 @@ public class Freecell extends javax.swing.JFrame {
                 Object resp2 = JOptionPane.showInputDialog(this, "Escolha a pilha onde quer colocar a carta!",
                         "Freecell", JOptionPane.PLAIN_MESSAGE, null, escolha, escolha[0]);
                 if (resp2 != null) {
-                    mudarPilha(resp2.toString(), baralho.getSextaPilha());
+                    mudarCarta(resp2.toString(), baralho.getSextaPilha());
                 }
             } else if (resp == JOptionPane.NO_OPTION) {
                 escolha = new String[]{"Espaço 1", "Espaço 2", "Espaço 3", "Espaço 4"};
@@ -989,9 +986,9 @@ public class Freecell extends javax.swing.JFrame {
             }
             atualizar();
         }
-    }//GEN-LAST:event_MudarPilha6ActionPerformed
+    }//GEN-LAST:event_bMudarPilha6ActionPerformed
 
-    private void MudarPilha7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MudarPilha7ActionPerformed
+    private void bMudarPilha7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMudarPilha7ActionPerformed
         if (!baralho.getSetimaPilha().isEmpty()) {
             Object[] opcao = {"Mudar de Pilha", "Celula de Retenção", "Pilha Base"};
 
@@ -999,11 +996,11 @@ public class Freecell extends javax.swing.JFrame {
             int resp = JOptionPane.showOptionDialog(this, "O que deseja fazer?",
                     "Freecell", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcao, opcao[0]);
             if (resp == JOptionPane.YES_OPTION) {
-                escolha = new String[]{"Pilha 1", "Pilha 2", "Pilha 3", "Pilha 4", "Pilha 5", "Pilha 6", "Pilha 7"};
+                escolha = new String[]{"Pilha 1", "Pilha 2", "Pilha 3", "Pilha 4", "Pilha 5", "Pilha 6", "Pilha 8"};
                 Object resp2 = JOptionPane.showInputDialog(this, "Escolha a pilha onde quer colocar a carta!",
                         "Freecell", JOptionPane.PLAIN_MESSAGE, null, escolha, escolha[0]);
                 if (resp2 != null) {
-                    mudarPilha(resp2.toString(), baralho.getSetimaPilha());
+                    mudarCarta(resp2.toString(), baralho.getSetimaPilha());
                 }
             } else if (resp == JOptionPane.NO_OPTION) {
                 escolha = new String[]{"Espaço 1", "Espaço 2", "Espaço 3", "Espaço 4"};
@@ -1022,9 +1019,9 @@ public class Freecell extends javax.swing.JFrame {
             }
             atualizar();
         }
-    }//GEN-LAST:event_MudarPilha7ActionPerformed
+    }//GEN-LAST:event_bMudarPilha7ActionPerformed
 
-    private void MudarPilha8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MudarPilha8ActionPerformed
+    private void bMudarPilha8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMudarPilha8ActionPerformed
         if (!baralho.getOitavaPilha().isEmpty()) {
             Object[] opcao = {"Mudar de Pilha", "Celula de Retenção", "Pilha Base"};
 
@@ -1036,7 +1033,7 @@ public class Freecell extends javax.swing.JFrame {
                 Object resp2 = JOptionPane.showInputDialog(this, "Escolha a pilha onde quer colocar a carta!",
                         "Freecell", JOptionPane.PLAIN_MESSAGE, null, escolha, escolha[0]);
                 if (resp2 != null) {
-                    mudarPilha(resp2.toString(), baralho.getOitavaPilha());
+                    mudarCarta(resp2.toString(), baralho.getOitavaPilha());
                 }
             } else if (resp == JOptionPane.NO_OPTION) {
                 escolha = new String[]{"Espaço 1", "Espaço 2", "Espaço 3", "Espaço 4"};
@@ -1055,7 +1052,7 @@ public class Freecell extends javax.swing.JFrame {
             }
             atualizar();
         }
-    }//GEN-LAST:event_MudarPilha8ActionPerformed
+    }//GEN-LAST:event_bMudarPilha8ActionPerformed
 
     private void bRetirarEspaco1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRetirarEspaco1ActionPerformed
         String[] escolha = new String[]{"Pilha 1", "Pilha 2", "Pilha 3", "Pilha 4",
@@ -1113,10 +1110,20 @@ public class Freecell extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bRetirarEspaco4ActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void miNovoJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNovoJogoActionPerformed
         novoJogo();
 
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_miNovoJogoActionPerformed
+
+    private void miSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSairActionPerformed
+        fechar();
+    }//GEN-LAST:event_miSairActionPerformed
+
+    private void fechar() {
+        if (javax.swing.JOptionPane.showConfirmDialog(null, "Deseja sair do programa?", "ATENÇÃO ", javax.swing.JOptionPane.YES_NO_OPTION) == 0) {
+            dispose();
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -1159,17 +1166,6 @@ public class Freecell extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton MudarPilha5;
-    private javax.swing.JButton MudarPilha6;
-    private javax.swing.JButton MudarPilha7;
-    private javax.swing.JButton MudarPilha8;
-    private javax.swing.JPanel Pilha2;
-    private javax.swing.JPanel Pilha3;
-    private javax.swing.JPanel Pilha4;
-    private javax.swing.JPanel Pilha5;
-    private javax.swing.JPanel Pilha6;
-    private javax.swing.JPanel Pilha7;
-    private javax.swing.JPanel Pilha8;
     private javax.swing.JButton bMudarPilha1;
     private javax.swing.JButton bMudarPilha2;
     private javax.swing.JButton bMudarPilha3;
@@ -1178,33 +1174,29 @@ public class Freecell extends javax.swing.JFrame {
     private javax.swing.JButton bMudarPilha6;
     private javax.swing.JButton bMudarPilha7;
     private javax.swing.JButton bMudarPilha8;
-    private javax.swing.JButton bMudarPilha9;
     private javax.swing.JButton bRetirarEspaco1;
     private javax.swing.JButton bRetirarEspaco2;
     private javax.swing.JButton bRetirarEspaco3;
     private javax.swing.JButton bRetirarEspaco4;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel;
+    private javax.swing.JMenu mAjuda;
+    private javax.swing.JMenu mJogo;
+    private javax.swing.JMenuItem miNovoJogo;
+    private javax.swing.JMenuItem miSair;
     private javax.swing.JPanel pEspaco1;
     private javax.swing.JPanel pEspaco2;
     private javax.swing.JPanel pEspaco3;
     private javax.swing.JPanel pEspaco4;
     private javax.swing.JPanel pPilha1;
-    private javax.swing.JPanel pPilha10;
-    private javax.swing.JPanel pPilha14;
     private javax.swing.JPanel pPilha2;
     private javax.swing.JPanel pPilha3;
+    private javax.swing.JPanel pPilha4;
+    private javax.swing.JPanel pPilha5;
     private javax.swing.JPanel pPilha6;
     private javax.swing.JPanel pPilha7;
     private javax.swing.JPanel pPilha8;
-    private javax.swing.JPanel pPilha9;
     private javax.swing.JPanel pPilhaBase1;
     private javax.swing.JPanel pPilhaBase2;
     private javax.swing.JPanel pPilhaBase3;
@@ -1214,24 +1206,16 @@ public class Freecell extends javax.swing.JFrame {
     private javax.swing.JLabel txtEspaco3;
     private javax.swing.JLabel txtEspaco4;
     private javax.swing.JTextArea txtPilha1;
-    private javax.swing.JTextArea txtPilha10;
-    private javax.swing.JTextArea txtPilha14;
     private javax.swing.JTextArea txtPilha2;
     private javax.swing.JTextArea txtPilha3;
+    private javax.swing.JTextArea txtPilha4;
+    private javax.swing.JTextArea txtPilha5;
     private javax.swing.JTextArea txtPilha6;
     private javax.swing.JTextArea txtPilha7;
     private javax.swing.JTextArea txtPilha8;
-    private javax.swing.JTextArea txtPilha9;
     private javax.swing.JLabel txtPilhaBase1;
     private javax.swing.JLabel txtPilhaBase2;
     private javax.swing.JLabel txtPilhaBase3;
     private javax.swing.JLabel txtPilhaBase4;
-    private javax.swing.JTextArea txtPilhaCinco;
-    private javax.swing.JTextArea txtPilhaDois;
-    private javax.swing.JTextArea txtPilhaOito;
-    private javax.swing.JTextArea txtPilhaQuatro;
-    private javax.swing.JTextArea txtPilhaSeis;
-    private javax.swing.JTextArea txtPilhaSete;
-    private javax.swing.JTextArea txtPilhaTres;
     // End of variables declaration//GEN-END:variables
 }
