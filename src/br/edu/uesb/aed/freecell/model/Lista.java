@@ -62,7 +62,23 @@ public class Lista {
         tail = tmp;
     }
 
-//    Remove o elemento da posição x
+    public void inserir2(Object[] item, int k) {
+        No novo = new No(item, null);
+        No tmp = null;
+        No pos = head;
+        int posicao = 0;
+        while (posicao < k) {
+            pos = pos.getNext();
+            posicao++;
+        }
+        if (posicao == k) {
+            tmp = pos;
+            pos = novo;
+            pos.setNext(tmp);
+        }
+
+    }
+
     public Object procurarRemove(int posicao) {
         No filaDepois = head;
         No filaAntes = null;
